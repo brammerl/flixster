@@ -26,7 +26,6 @@ const useFetchData = (method, page = 1) => {
 
 
   useEffect(() => {
-    console.log('useEffect firing');
     const fetchData = async () => {
       try {
         const response = await axios.request(options)
@@ -47,8 +46,6 @@ const useFetchData = (method, page = 1) => {
 
     fetchData();
   }, [page]);
-
-  console.log(data);
 
   return {
     data,
