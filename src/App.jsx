@@ -5,9 +5,11 @@ import MovieCard from './components/MovieCard.jsx'
 import Button from './components/Button.jsx'
 import SearchInput from './components/SearchInput.jsx'
 import Header from './components/Header.jsx'
+import Dropdown from './components/Dropdown.jsx'
 
 import useFetchData from './hooks/useFetchData.jsx'
-import { REQUEST_METHOD } from './constants/constants.js'
+import { REQUEST_METHOD, DROPDOWN_OPTIONS } from './constants/constants.js'
+
 
 
 const App = () => {
@@ -31,7 +33,8 @@ const App = () => {
     <div>
       <Header>
         <SearchInput placeholder={'Search..'} onChange={(e) =>  setQuery(e.target.value)} value={query}/>
-          <Button/>
+        <Dropdown options={DROPDOWN_OPTIONS}/>
+        <Button onClick={() => setQuery('')} text='Clear Search'/>
       </Header>
       <div className='main-content'>
         <MovieList>
