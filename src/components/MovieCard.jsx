@@ -1,6 +1,6 @@
 const MovieCard = ({movie}) => {
 
-    const {id,  poster_path, title} = movie
+    const {id,  poster_path, title, vote_average} = movie
     
     return (
     <article key={id} className='movie-card'>
@@ -9,6 +9,7 @@ const MovieCard = ({movie}) => {
         </div>
         <div className='movie-info'>
             <h2>{title}</h2>
+            <h3>Rating: {vote_average} / 10</h3>
         </div>
     </article>)
 }
