@@ -1,6 +1,6 @@
 const MovieList = ({children}) => {
     return(
-        <div>
+        <div className='movie-list-container'>
             {children}
         </div>
     )
