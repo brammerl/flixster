@@ -24,21 +24,22 @@ export const sortByRatingsDesc = (data) => {
     })
 }
 
-// export const sortByTitleDesc = (data) => {
-//     return data.sort((a,b) => {
-//         aTitle = a.title.toLowerCase()
-//         bTitle = b.title.toLowerCase()
-//         if(aTitle b.vote_average) {
-//             return - 1
-//         } 
+export const sortByTitleDesc = (data) => {
+    return data.sort((a,b) => {
+        const aTitle = a.title.toLowerCase()
+        const bTitle = b.title.toLowerCase()
 
-//         if (a.vote_average < b.vote_average) {
-//             return 1
-//         }
+        if(aTitle < bTitle) {
+            return -1
+        } 
 
-//         return 0;
-//     })
-// }
+        if (aTitle > bTitle) {
+            return 1
+        }
+
+        return 0;
+    })
+}
 
 export const sortMovies = (data, sortQuery) => {
     switch(sortQuery){
@@ -47,8 +48,8 @@ export const sortMovies = (data, sortQuery) => {
         case DROP_DOWN_VALUES.RATING_DESC:
             return sortByRatingsDesc(data);
         case DROP_DOWN_VALUES.RELEASE_DATE_CHRON:
-        case DROP_DOWN_VALUES.RATING_DESC:
-            console.log(value);
+        case DROP_DOWN_VALUES.TITLE:
+            sortByTitleDesc(data);
         default: 
             return data
         
