@@ -1,11 +1,20 @@
 import { useEffect, useState} from 'react';
 import axios from 'axios';
 
-const useFetchData = (method, url) => {
-  const [data, setData] = useState({});
+const useFetchData = (method, page = 1) => {
+  const [data, setData] = useState({
+    dates: null,
+    results: [],
+    total_pages: null,
+    total_results: null,
+    page: null,
+  });
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null)
 
+  const url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`
+  
   const options = {
     method,
     url,
@@ -17,19 +26,29 @@ const useFetchData = (method, url) => {
 
 
   useEffect(() => {
+    console.log('useEffect firing');
     const fetchData = async () => {
       try {
-        const response = await axios
-        .request(options)
-        setData(response.data);
+        const response = await axios.request(options)
+
+        setData(prevData => {
+          return {
+          dates: prevData.dates ?? response.data.dates,
+          results: prevData.results.length > 0 && prevData.page != page ? [...prevData.results, ...response.data.results] : response.data.results,
+          page: prevData.page != page ? page : prevData.page
+          };
+        });
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         setError(error);
       }
-      setLoading(false);
     };
 
     fetchData();
-  }, []);
+  }, [page]);
+
+  console.log(data);
 
   return {
     data,
