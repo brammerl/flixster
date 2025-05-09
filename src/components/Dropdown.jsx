@@ -1,9 +1,12 @@
-const Dropdown = ({options}) => {
+const Dropdown = ({options, onChange}) => {
+
+    
     return (
-        <select>
+        <select id='sort' onChange={() => onChange()}>
             {
                 options.map((option) => {
-                    return <option value={option.value ?? option.text.toLowerCase()}>{option.text}</option>
+                    const value = option.value ?? option.label.toLowerCase()
+                    return <option value={value} key={value}>{option.label}</option>
                 })
             }
         </select>
