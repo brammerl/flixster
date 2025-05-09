@@ -3,7 +3,7 @@ import './App.css'
 import MovieList from './components/MovieList.jsx'
 import MovieCard from './components/MovieCard.jsx'
 
-import useFetchData from './hooks/useGetNowPlaying.jsx'
+import useFetchData from './hooks/useFetchData.jsx'
 import { REQUEST_METHOD } from './constants/constants.js'
 
 
