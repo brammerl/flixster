@@ -1,7 +1,9 @@
-const MovieList = (props) => {
-    <div>
-        {props.children}
-    </div>
+const MovieList = ({children}) => {
+    return(
+        <div>
+            {children}
+        </div>
+    )
 }
 
 export default MovieList;
