@@ -5,21 +5,28 @@ export const REQUEST_METHOD = {
     DELETE: 'DELETE'
 }
 
+export const DROP_DOWN_VALUES = {
+    SORT_BY:'',
+    TITLE: 'title-desc',
+    RELEASE_DATE_CHRON: 'release-date-chron',
+    RATING_DESC: 'rating-desc'
+}
+
 export const DROPDOWN_OPTIONS = [
     {
-        text: 'Sort by',
-        value: null
+        label: 'Sort by',
+        value: DROP_DOWN_VALUES.SORT_BY
     },
     {
-        text: 'Title ↓',
-        value: 'title-desc'
+        label: 'Title ↓',
+        value: DROP_DOWN_VALUES.TITLE
     },
     {
-        text: 'Release Date ↓',
-        value: 'release-date-chron'
+        label: 'Release Date ↓',
+        value: DROP_DOWN_VALUES.RELEASE_DATE_CHRON
     },
     {
-        text: 'Rating ↓',
-        value: 'release-date-chron'
+        label: 'Rating ↓',
+        value: DROP_DOWN_VALUES.RATING_DESC
     }
 ]
