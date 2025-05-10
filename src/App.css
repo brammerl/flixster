@@ -54,6 +54,11 @@
   padding: 10px;
 }
 
+.movie-card:hover {
+  box-shadow: 10px 5px 5px #cbf3f0;
+  cursor: pointer;
+}
+
 .movie-card .movie-image {
   height: 60%;
   width: 100%;
@@ -152,6 +157,19 @@
     flex-direction: column;
     justify-items: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .modal-content h1 {
+    margin-top: 10px;
   }
 }
 
