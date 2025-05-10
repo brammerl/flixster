@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import MovieList from "./components/MovieList.jsx";
-import MovieCard from "./components/MovieCard.jsx";
 import Button from "./components/Button.jsx";
 import SearchInput from "./components/SearchInput.jsx";
 import Header from "./components/Header.jsx";
@@ -21,8 +20,6 @@ const App = () => {
   if (loading) {
     return <div>loading</div>;
   }
-
-  console.log(sortQuery);
 
   const filteredData = data.results.filter((data) => {
     if (query == "") {
@@ -52,14 +49,11 @@ const App = () => {
         <Button onClick={() => setQuery("")} text="Clear Search" />
       </Header>
       <div className="main-content">
-        <MovieList>
-          {sortedMovies.map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-        </MovieList>
-        <div className="load-more">
-          <Button onClick={() => setPage((prevPage) => prevPage + 1)} />
-        </div>
+        {sortedMovies.length ? (
+          <MovieList movies={sortedMovies} />
+        ) : (
+          <div>sorry nothing here</div>
+        )}
       </div>
     </div>
   );
