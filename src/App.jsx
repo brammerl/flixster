@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import MovieList from "./components/MovieList.jsx";
+import MovieList from "./components/MovieListPage/MovieList.jsx";
 import Button from "./components/Button.jsx";
 import SearchInput from "./components/SearchInput.jsx";
 import Header from "./components/Header.jsx";
