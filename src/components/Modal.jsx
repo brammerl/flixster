@@ -28,9 +28,6 @@ const Modal = ({ movie, onClick }) => {
           {" "}
           <p>Genres: </p>
           {filteredGenres.map((genre, index) => {
-            console.log(filteredGenres.length - 1);
-            console.log(index);
-            console.log(index !== filteredGenres.length - 1);
             return (
               <p>
                 {genre.name}
