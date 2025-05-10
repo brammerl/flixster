@@ -1,11 +1,18 @@
 .load-more {
-  background: tan;
   width: 100%;
   text-align: center;
 }
 
+.wrapper {
+  background: tan;
+}
 .App {
   text-align: center;
+}
+
+footer {
+  background-color: #ff9f1c;
+  height: 100%;
 }
 
 .App-header {

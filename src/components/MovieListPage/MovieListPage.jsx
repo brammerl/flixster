@@ -6,6 +6,7 @@ import SearchInput from "../SearchInput";
 import Dropdown from "../Dropdown";
 import Button from "../Button";
 import Modal from "../Modal";
+import Footer from "../Footer";
 
 import useFetchMovieData from "../../hooks/useFetchMovieData";
 import { sortMovies, getSelectValue } from "../../helper-functions/sortMovies";
@@ -39,7 +40,7 @@ const MovieListPage = () => {
   });
 
   return (
-    <div>
+    <div class="wrapper">
       <Header>
         <h1>Flixter</h1>
         <div className="nav-bar">
@@ -79,6 +80,9 @@ const MovieListPage = () => {
         )}
         {movieId && <Modal movie={selectedMovie} onClick={setMovieId} />}
       </div>
+      <Footer>
+        <p>Flixter @ 2005</p>
+      </Footer>
     </div>
   );
 };
