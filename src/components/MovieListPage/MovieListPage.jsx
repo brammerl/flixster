@@ -72,7 +72,10 @@ const MovieListPage = () => {
           <>
             <MovieList movies={sortedMovies} onClick={setMovieId} />
             <div className="load-more">
-              <Button onClick={() => setPage((prevPage) => prevPage + 1)} />
+              <Button
+                onClick={() => setPage((prevPage) => prevPage + 1)}
+                text="Load more"
+              />
             </div>
           </>
         ) : (
