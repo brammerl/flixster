@@ -9,7 +9,6 @@ export const getSelectValue = () => {
 
   return dropdown.value;
 };
-
 export const sortByDesc = (data, key) => {
   return data.sort((a, b) => {
     const aKey = a[key];
@@ -53,6 +52,7 @@ export const sortMovies = (data, sortQuery) => {
     case DROP_DOWN_VALUES.RELEASE_DATE_CHRON:
       return sortByDesc(data, "release_date");
     case DROP_DOWN_VALUES.TITLE:
+      // Consider making this more custom due to numbers
       sortByAsc(data, "title");
     default:
       return data;
