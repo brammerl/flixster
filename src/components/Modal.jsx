@@ -23,7 +23,7 @@ const Modal = ({ movie, onClick }) => {
         <h1>{original_title}</h1>
         <img src={`${import.meta.env.VITE_IMAGE_BASE_URL}${poster_path}`} />
         <p>Release Date: {release_date}</p>
-        <p>Overview: {overview}</p>
+        <p>Overview: {overview ? overview : "None"}</p>
         <div className="genres">
           {" "}
           <p>Genres: </p>
