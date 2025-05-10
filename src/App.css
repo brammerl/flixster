@@ -1,3 +1,9 @@
+.load-more {
+  background: tan;
+  width: 100%;
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
