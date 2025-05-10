@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-import MovieList from "../MovieList";
+import MovieList from "./MovieList";
 import Header from "../Header";
 import SearchInput from "../SearchInput";
 import Dropdown from "../Dropdown";
 import Button from "../Button";
+import Modal from "../Modal";
 
-import useFetchData from "../../hooks/useFetchData";
+import useFetchMovieData from "../../hooks/useFetchMovieData";
 import { sortMovies, getSelectValue } from "../../helper-functions/sortMovies";
 
 import { REQUEST_METHOD, DROPDOWN_OPTIONS } from "../../constants/constants";
@@ -15,12 +16,9 @@ const MovieListPage = () => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [sortQuery, setSortQuery] = useState("");
-  const [modalControl, setModalControl] = useState({
-    open: false,
-    id: null,
-  });
+  const [movieId, setMovieId] = useState(null);
 
-  const { data, error, loading } = useFetchData(REQUEST_METHOD.GET, page);
+  const { data, error, loading } = useFetchMovieData(page);
 
   if (loading) {
     return <div>loading</div>;
@@ -36,13 +34,17 @@ const MovieListPage = () => {
 
   const sortedMovies = sortMovies(filteredData, sortQuery);
 
+  const selectedMovie = sortedMovies.filter((movie) => {
+    return movie.id == movieId;
+  });
+
   return (
     <div>
       <Header>
         <SearchInput
           placeholder={"Search.."}
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={setQuery}
         />
         <Dropdown
           options={DROPDOWN_OPTIONS}
@@ -62,10 +64,7 @@ const MovieListPage = () => {
       <div className="main-content">
         {sortedMovies.length ? (
           <>
-            <MovieList
-              movies={sortedMovies}
-              onCardClick={() => setModalOpen()}
-            />
+            <MovieList movies={sortedMovies} onClick={setMovieId} />
             <div className="load-more">
               <Button onClick={() => setPage((prevPage) => prevPage + 1)} />
             </div>
@@ -73,6 +72,7 @@ const MovieListPage = () => {
         ) : (
           <div>sorry nothing here</div>
         )}
+        {movieId && <Modal movie={selectedMovie} onClick={setMovieId} />}
       </div>
     </div>
   );

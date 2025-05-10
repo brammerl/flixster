@@ -1,11 +1,12 @@
-import MovieCard from "./MovieCard";
-import Button from "./Button";
+import { useState } from "react";
 
-const MovieList = ({ movies }) => {
+import MovieCard from "./MovieCard";
+
+const MovieList = ({ movies, onClick }) => {
   return (
     <div className="movie-list-container">
       {movies.map((movie) => (
-        <MovieCard movie={movie} />
+        <MovieCard movie={movie} onClick={onClick} />
       ))}
     </div>
   );

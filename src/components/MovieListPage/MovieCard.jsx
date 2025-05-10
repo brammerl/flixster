@@ -1,8 +1,14 @@
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onClick }) => {
   const { id, poster_path, title, vote_average } = movie;
 
   return (
-    <article key={id} className="movie-card">
+    <article
+      key={id}
+      className="movie-card"
+      onClick={() => {
+        onClick(id);
+      }}
+    >
       <div className="movie-image">
         <img src={`${import.meta.env.VITE_IMAGE_BASE_URL}${poster_path}`} />
       </div>
