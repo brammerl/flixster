@@ -84,8 +84,8 @@
   transition: opacity 0.8s ease;
 }
 .modal-content {
-  max-height: 80vh;
-  max-width: 60vw;
+  max-height: 80%;
+  max-width: 60%;
   padding: 30px;
   background: white;
   display: grid;
@@ -95,7 +95,7 @@
   align-items: center;
   align-content: center;
   justify-items: center;
-  overflow-y: auto;
+  overflow-y: none;
 }
 
 .modal-content img {

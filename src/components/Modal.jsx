@@ -39,9 +39,9 @@ const Modal = ({ movie, onClick }) => {
             );
           })}
         </div>
-      </div>
-      <div>
-        <button onClick={() => onClick(null)}>Exit</button>
+        <div>
+          <button onClick={() => onClick(null)}>Exit</button>
+        </div>
       </div>
     </card>
   );
