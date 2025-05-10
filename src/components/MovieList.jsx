@@ -7,9 +7,6 @@ const MovieList = ({ movies }) => {
       {movies.map((movie) => (
         <MovieCard movie={movie} />
       ))}
-      <div className="load-more">
-        <Button onClick={() => setPage((prevPage) => prevPage + 1)} />
-      </div>
     </div>
   );
 };
