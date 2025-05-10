@@ -10,13 +10,16 @@ export const getSelectValue = () => {
   return dropdown.value;
 };
 
-export const sortByRatingsDesc = (data) => {
+export const sortByDesc = (data, key) => {
   return data.sort((a, b) => {
-    if (a.vote_average > b.vote_average) {
+    const aKey = a[key];
+    const bKey = b[key];
+
+    if (aKey > bKey) {
       return -1;
     }
 
-    if (a.vote_average < b.vote_average) {
+    if (aKey < bKey) {
       return 1;
     }
 
@@ -24,16 +27,16 @@ export const sortByRatingsDesc = (data) => {
   });
 };
 
-export const sortByTitleDesc = (data) => {
+export const sortByAsc = (data, key) => {
   return data.sort((a, b) => {
-    const aTitle = a.title.toLowerCase();
-    const bTitle = b.title.toLowerCase();
+    const aKey = a[key];
+    const bKey = b[key];
 
-    if (aTitle < bTitle) {
+    if (aKey < bKey) {
       return -1;
     }
 
-    if (aTitle > bTitle) {
+    if (aKey > bKey) {
       return 1;
     }
 
@@ -46,10 +49,11 @@ export const sortMovies = (data, sortQuery) => {
     case DROP_DOWN_VALUES.SORT_BY:
       return data;
     case DROP_DOWN_VALUES.RATING_DESC:
-      return sortByRatingsDesc(data);
+      return sortByDesc(data, "vote_average");
     case DROP_DOWN_VALUES.RELEASE_DATE_CHRON:
+      return sortByDesc(data, "release_date");
     case DROP_DOWN_VALUES.TITLE:
-      sortByTitleDesc(data);
+      sortByAsc(data, "title");
     default:
       return data;
   }
