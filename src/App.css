@@ -65,6 +65,26 @@
   margin-top: 0px;
 }
 
+.movie-card h2 {
+  font-size: 18px;
+  padding: 0px;
+  margin: 10px 0px 0px 0px;
+}
+
+.movie-card h3 {
+  font-size: 16px;
+  padding: 0px;
+}
+
+.movie-card .movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  justify-content: left;
+  gap: 0px;
+  width: 100%;
+}
+
 .movie-card img {
   height: 100%;
   width: 100%;
@@ -113,6 +133,22 @@
   .App-header {
     display: flex;
     flex-direction: column;
+  }
+
+  .nav-bar div {
+    width: 100%;
+  }
+
+  .nav-bar input {
+    width: 50px;
+  }
+
+  .nav-bar select {
+    width: 75px;
+  }
+
+  .nav-bar button {
+    width: 75px;
   }
 }
 
