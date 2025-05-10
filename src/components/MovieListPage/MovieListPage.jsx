@@ -10,7 +10,7 @@ import Modal from "../Modal";
 import useFetchMovieData from "../../hooks/useFetchMovieData";
 import { sortMovies, getSelectValue } from "../../helper-functions/sortMovies";
 
-import { REQUEST_METHOD, DROPDOWN_OPTIONS } from "../../constants/constants";
+import { DROPDOWN_OPTIONS } from "../../constants/constants";
 
 const MovieListPage = () => {
   const [page, setPage] = useState(1);
@@ -41,25 +41,30 @@ const MovieListPage = () => {
   return (
     <div>
       <Header>
-        <SearchInput
-          placeholder={"Search.."}
-          value={query}
-          onChange={setQuery}
-        />
-        <Dropdown
-          options={DROPDOWN_OPTIONS}
-          onChange={() => {
-            const sortQuery = getSelectValue();
-            setSortQuery(sortQuery);
-          }}
-        />
-        <Button
-          onClick={() => {
-            setQuery("");
-            setSortQuery("");
-          }}
-          text="Clear Search"
-        />
+        <h1>Flixter</h1>
+        <div className="nav-bar">
+          <div>
+            <SearchInput
+              placeholder={"Search.."}
+              value={query}
+              onChange={setQuery}
+            />
+            <Dropdown
+              options={DROPDOWN_OPTIONS}
+              onChange={() => {
+                const sortQuery = getSelectValue();
+                setSortQuery(sortQuery);
+              }}
+            />
+            <Button
+              onClick={() => {
+                setQuery("");
+                setSortQuery("");
+              }}
+              text="Clear Search"
+            />
+          </div>
+        </div>
       </Header>
       <div className="main-content">
         {sortedMovies.length ? (
